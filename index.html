@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobSecure - Mobile Security Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 MobSecure</h1>
+            <p>Mobile Application Security Analysis Tool</p>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>📱 Upload APK/IPA File</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <p>Drag and drop your APK or IPA file here</p>
+                    <p>or click to browse</p>
+                    <input type="file" id="fileInput" accept=".apk,.ipa" style="display: none;">
+                </div>
+                <button class="btn" onclick="startAnalysis()" id="analyzeBtn" disabled>
+                    🔍 Start Analysis
+                </button>
+                <button class="btn" onclick="clearResults()">
+                    🗑️ Clear Results
+                </button>
+            </div>
+
+            <div class="card">
+                <h2>⚙️ Analysis Options</h2>
+                <div>
+                    <label>
+                        <input type="checkbox" id="staticAnalysis" checked> Static Analysis
+                    </label><br><br>
+                    <label>
+                        <input type="checkbox" id="permissionCheck" checked> Permission Analysis
+                    </label><br><br>
+                    <label>
+                        <input type="checkbox" id="securityCheck" checked> Security Vulnerabilities
+                    </label><br><br>
+                    <label>
+                        <input type="checkbox" id="codeAnalysis" checked> Code Quality Check
+                    </label>
+                </div>
+                
+                <div class="file-info hidden" id="fileInfo">
+                    <h3>File Information</h3>
+                    <p id="fileName"></p>
+                    <p id="fileSize"></p>
+                    <p id="fileType"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section hidden" id="resultsSection">
+            <h2>📊 Analysis Results</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">Initializing analysis...</p>
+
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('overview')">Overview</div>
+                <div class="tab" onclick="showTab('permissions')">Permissions</div>
+                <div class="tab" onclick="showTab('security')">Security</div>
+                <div class="tab" onclick="showTab('code')">Code Analysis</div>
+            </div>
+
+            <div class="tab-content active" id="overview">
+                <div class="analysis-grid" id="overviewGrid">
+                    <!-- Results will be populated here -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="permissions">
+                <div id="permissionsContent">
+                    <!-- Permissions analysis will be shown here -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="security">
+                <div id="securityContent">
+                    <!-- Security analysis will be shown here -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="code">
+                <div id="codeContent">
+                    <!-- Code analysis will be shown here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
