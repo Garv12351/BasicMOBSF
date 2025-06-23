@@ -9,6 +9,7 @@ A basic web-based mobile application security analysis tool similar to MobSF.
 - Code quality checks
 - Risk assessment
 - Responsive design
+- Real APK Parsing
 
 ## How to Run
 1. Open `index.html` in a web browser
@@ -20,7 +21,6 @@ A basic web-based mobile application security analysis tool similar to MobSF.
 - JavaScript (Vanilla)
 
 ## Future Enhancements
-- Real APK parsing
 - Backend integration
 - Database storage
 - API endpoints
